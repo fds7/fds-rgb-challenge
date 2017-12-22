@@ -52,3 +52,25 @@ html, body {
   align-items: center;
   justify-content: center;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-button {
+  border: 1px solid white;
+  cursor: pointer;
+  padding: 10px;
+}
