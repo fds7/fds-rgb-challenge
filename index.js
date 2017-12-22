@@ -34,15 +34,32 @@ function init() {
 
 document.querySelectorAll('.box').forEach((el, index) => {
   el.addEventListener('click', e => {
+    el.classList.add('show');
     if (index === correctAnswer) {
-      nextStage();
-      draw();
+      document.querySelector('.correct').classList.add('show');
     } else {
-      init();
-      draw();
+      document.querySelector('.wrong').classList.add('show');
     }
   });
 })
+
+document.querySelector('.correct .modal-button').addEventListener('click', e => {
+  nextStage();
+  draw();
+  document.querySelector('.correct').classList.remove('show');
+  document.querySelectorAll('.box').forEach(el => {
+    el.classList.remove('show');
+  });
+});
+
+document.querySelector('.wrong .modal-button').addEventListener('click', e => {
+  init();
+  draw();
+  document.querySelector('.wrong').classList.remove('show');
+  document.querySelectorAll('.box').forEach(el => {
+    el.classList.remove('show');
+  });
+});
 
 init();
 draw();
